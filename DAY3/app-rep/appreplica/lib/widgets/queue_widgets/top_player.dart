@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../models/music_item.dart';
 import '../../screens/player_page.dart';
+import 'dart:ui';
 
 class TopPlayer extends StatelessWidget {
   const TopPlayer({super.key, required this.item, required this.mainColor});
@@ -15,7 +16,7 @@ class TopPlayer extends StatelessWidget {
       toolbarHeight: 70,
       backgroundColor: HSLColor.fromColor(
         mainColor,
-      ).withLightness(0.05).toColor(),
+      ).withLightness(0.07).toColor(),
       surfaceTintColor: Colors.transparent,
       scrolledUnderElevation: 0,
       titleSpacing: 12,
@@ -23,7 +24,23 @@ class TopPlayer extends StatelessWidget {
         onTap: () {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => PlayerPage(item: item)),
+            PageRouteBuilder(
+              pageBuilder: (context, animation, secondaryAnimation) =>
+                  PlayerPage(item: item),
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                    return FadeTransition(
+                      opacity: animation,
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(
+                          sigmaX: 10.0 * animation.value,
+                          sigmaY: 10.0 * animation.value,
+                        ),
+                        child: child,
+                      ),
+                    );
+                  },
+            ),
           );
         },
         child: Column(

@@ -21,7 +21,7 @@ class QueuePage extends StatelessWidget {
     MusicItem('【Cover】ド屑 /...', 'assets/image7.jpeg', 'Cover Artist'),
     MusicItem('Recap 2025', 'assets/image8.jpeg', 'Youtube'),
     MusicItem('IRIS OUT', 'assets/image10.png', 'Kenshi Yonezu'),
-    MusicItem('[MV] IDOL - HAKOS BAELZ COVER', 'assets/image11.jpg', 'YOASOBI'),
+    MusicItem('[MV] IDOL - HAKOS BAELZ', 'assets/image11.jpg', 'YOASOBI'),
     MusicItem('Recommended', 'assets/image9.jpg', 'Youtube Music'),
   ];
 
@@ -43,8 +43,11 @@ class QueuePage extends StatelessWidget {
         return Scaffold(
           body: Stack(
             children: [
-              Container(color: mainColor),
-              Container(color: Colors.black.withOpacity(0.8)),
+              Container(
+                color: HSLColor.fromColor(
+                  mainColor,
+                ).withLightness(0.07).toColor(),
+              ),
               CustomScrollView(
                 slivers: [
                   TopPlayer(item: item, mainColor: mainColor),

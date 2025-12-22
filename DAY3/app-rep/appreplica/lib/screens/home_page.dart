@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            MiniPlayer(item: currentItem), // Pass the currentItem dynamically
+            MiniPlayer(item: currentItem),
             const BottomNavigationBarWidget(),
           ],
         ),

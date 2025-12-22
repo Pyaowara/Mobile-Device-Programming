@@ -91,7 +91,7 @@ class SpeedDialSection extends StatelessWidget {
                                   );
                                 },
                             transitionDuration: const Duration(
-                              milliseconds: 300,
+                              milliseconds: 500,
                             ),
                           ),
                         );
