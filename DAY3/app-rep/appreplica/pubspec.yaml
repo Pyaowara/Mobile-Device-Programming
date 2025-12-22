@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^6.3.3
+  palette_generator: ^0.3.3+3
 
 dev_dependencies:
   flutter_test:
