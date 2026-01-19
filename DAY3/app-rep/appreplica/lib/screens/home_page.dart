@@ -8,25 +8,23 @@ import '../widgets/home_widgets/mini_player.dart';
 import '../widgets/home_widgets/bottom_navigation_bar.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key, this.item});
+  const HomePage({super.key, this.item, this.username, this.selectedGenre});
 
   final MusicItem? item;
+  final String? username;
+  final String? selectedGenre;
 
   @override
   Widget build(BuildContext context) {
     final currentItem =
         item ??
-        MusicItem(
-          'Top songs for you',
-          'assets/topsong.jpeg',
-          'Youtube Music',
-        );
+        MusicItem('Top songs for you', 'assets/topsong.jpeg', 'Youtube Music');
 
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const SliverAppBarWidget(),
-          const SliverToBoxAdapter(child: ChipsWidget()),
+          SliverAppBarWidget(username: username),
+          SliverToBoxAdapter(child: ChipsWidget(selectedGenre: selectedGenre)),
           SliverToBoxAdapter(child: SpeedDialSection()),
           SliverToBoxAdapter(child: MusicVideosSection()),
           const SliverToBoxAdapter(child: SizedBox(height: 80)),

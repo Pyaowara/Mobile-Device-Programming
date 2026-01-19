@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/home_page.dart';
+import 'screens/landing_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -36,7 +36,7 @@ class MainApp extends StatelessWidget {
           unselectedLabelStyle: TextStyle(fontSize: 10),
         ),
       ),
-      home: const HomePage(),
+      home: const LandingPage(),
     );
   }
 }

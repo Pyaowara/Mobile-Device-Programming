@@ -1,7 +1,10 @@
+import 'package:appreplica/screens/landing_page.dart';
 import 'package:flutter/material.dart';
 
 class SliverAppBarWidget extends StatelessWidget {
-  const SliverAppBarWidget({super.key});
+  const SliverAppBarWidget({super.key, this.username});
+
+  final String? username;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +16,7 @@ class SliverAppBarWidget extends StatelessWidget {
           const Icon(Icons.music_note, color: Colors.red, size: 28),
           const SizedBox(width: 4),
           Text(
-            'Music',
+            username != null ? 'Music - $username' : 'Music',
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
               color: Colors.white,
               fontWeight: FontWeight.bold,
@@ -50,9 +53,16 @@ class SliverAppBarWidget extends StatelessWidget {
         IconButton(icon: const Icon(Icons.search, size: 24), onPressed: () {}),
         Padding(
           padding: const EdgeInsets.only(right: 12.0),
-          child: CircleAvatar(
-            backgroundImage: const AssetImage('assets/profile.jpg'),
-            radius: 12,
+          child: GestureDetector(
+            onTap: () {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => const LandingPage()),
+              );
+            },
+            child: const CircleAvatar(
+              backgroundImage: AssetImage('assets/profile.jpg'),
+              radius: 12,
+            ),
           ),
         ),
       ],
