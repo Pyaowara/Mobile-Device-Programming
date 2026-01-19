@@ -30,7 +30,7 @@ class Detailed extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   Text(post.body),
-                  ButtonBar(
+                  OverflowBar(
                     alignment: MainAxisAlignment.start,
                     children: [
                       TextButton(

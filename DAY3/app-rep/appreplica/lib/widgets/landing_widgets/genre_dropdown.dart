@@ -21,7 +21,7 @@ class GenreDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
-      value: selectedGenre,
+      initialValue: selectedGenre,
       decoration: InputDecoration(
         labelText: 'Favorite Genre',
         hintText: 'Select your favorite genre',
